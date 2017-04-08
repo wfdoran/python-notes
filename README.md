@@ -13,4 +13,17 @@ Personal notes on using python, mainly python3.
 a = list(set(a))
 ```
 
+### read in a file
 
+```python
+for line in open("file"):
+    print(line)
+```
+Ok, but does not close file after even after loop exits.
+
+```python
+import codecs
+
+for line in codecs.open("file", "r", encoding='ascii', errors='replace'):
+    print(line)
+```
