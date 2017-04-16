@@ -13,6 +13,12 @@ Personal notes on using python, mainly python3.
 a = list(set(a))
 ```
 
+### invert a list
+
+```python
+x_inv = {val : idx for idx, val in enumerate(x)}
+```
+
 ### read in a file
 
 ```python
