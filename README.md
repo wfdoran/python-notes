@@ -34,6 +34,17 @@ for line in codecs.open("file", "r", encoding='ascii', errors='replace'):
     print(line)
 ```
 
+### grab a webpage
+
+```python
+import urllib.request
+
+url = "https://google.com"
+page = urllib.request.urlopen(url)
+html = str(page.read())
+```
+
+
 ## matplotlib
 
 ```python
