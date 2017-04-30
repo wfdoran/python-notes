@@ -34,6 +34,16 @@ for line in codecs.open("file", "r", encoding='ascii', errors='replace'):
     print(line)
 ```
 
+Read in a CSV file.  
+```python
+from csv import reader
+file = open("filename")
+for line in reader(file):
+    print(line)
+```
+Each line is an array of strings.  The big advantage of using csv is that 
+it does not view commas in quoted strings as seperators.  
+
 ### grab a webpage
 
 ```python
@@ -43,7 +53,6 @@ url = "https://google.com"
 page = urllib.request.urlopen(url)
 html = str(page.read())
 ```
-
 
 ## matplotlib
 
