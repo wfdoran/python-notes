@@ -19,6 +19,15 @@ a = list(set(a))
 x_inv = {val : idx for idx, val in enumerate(x)}
 ```
 
+### char <-> ascii value
+
+```python
+>>> ord('a')
+97
+>>> char(97)
+'a'
+```
+
 ### read in a file
 
 ```python
