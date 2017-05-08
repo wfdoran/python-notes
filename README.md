@@ -24,7 +24,7 @@ x_inv = {val : idx for idx, val in enumerate(x)}
 ```python
 >>> ord('a')
 97
->>> char(97)
+>>> chr(97)
 'a'
 ```
 
