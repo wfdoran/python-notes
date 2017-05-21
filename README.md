@@ -28,6 +28,25 @@ x_inv = {val : idx for idx, val in enumerate(x)}
 'a'
 ```
 
+### loop on a dictionary
+
+```python
+d = {}
+for key in d:
+for key, value in d.items():
+
+### priority queue
+
+Implement a poor-man's priority queue using =bisect.insort_left= and =pop=.  =insert_left= keeps a list
+sorted.  =pop= pulls off the last highest value node.
+```python
+import bisect
+node = (value, state)
+queue = []
+bisect.insort_left(queue, node)   # insert
+node = queue.pop()                # get highest value node
+```
+
 ### read in a file
 
 ```python
