@@ -34,6 +34,7 @@ x_inv = {val : idx for idx, val in enumerate(x)}
 d = {}
 for key in d:
 for key, value in d.items():
+```
 
 ### priority queue
 
