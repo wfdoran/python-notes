@@ -48,6 +48,26 @@ bisect.insort_left(queue, node)   # insert
 node = queue.pop()                # get highest value node
 ```
 
+### functional list tricks
+
+#### Filter
+```python
+x = list(range(10))
+def f(x):
+    return (x%2) == 0
+y = [a for a in x if f(a)]
+y = filter(f,x)     # note: iterator
+y = list(filter(f,x))
+y = list(filter(lambda a:(a%2)==0 ,x))
+```
+
+#### Map
+
+#### Reduce
+
+#### Add
+
+
 ### read in a file
 
 ```python
