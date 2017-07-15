@@ -122,3 +122,5 @@ plt.show()
 
 [tutorial](https://pandas.pydata.org/pandas-docs/stable/tutorials.html)
 
+## [scipy](scipy.md)
+
