@@ -28,3 +28,17 @@ poly = lambda x : x**3 - 6 * x**2 + 5 * x + 12
 fsolve(poly, [0.0,2.5,5.0])
 ```
 
+## numeric integration
+
+```python
+import numpy as np
+import math
+from scipy.integrate import quad
+
+c = math.sqrt(2 * math.pi)
+f = lambda x : np.exp(-x*x/2) / c
+quad(f,-10,10)
+quad(f,-10,0)
+quad(f,-10,1)
+quad(f,-10,2)
+```
