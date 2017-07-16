@@ -42,3 +42,14 @@ quad(f,-10,0)
 quad(f,-10,1)
 quad(f,-10,2)
 ```
+
+compare with 
+```python
+import numpy as np
+import scipy.stats import norm
+
+dist = norm(0,1)
+dist.cdf(0)
+dist.cdf(1)
+dist.cdf(2)
+```
