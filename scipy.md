@@ -53,3 +53,20 @@ dist.cdf(0)
 dist.cdf(1)
 dist.cdf(2)
 ```
+
+## minimize
+
+```python
+from scipy.optimize import minimize
+def f(x):
+    return 1000/x[0] + 20000/x[1]
+    
+def h(x):
+    return x[0] + x[1] - 1.0
+    
+cons = [{'type':'eq','fun':h}, {'type':'ineq','fun':lambda x:x[0]}, {'type':'ineq','fun':lambda x:x[1]}]
+x_init = [.5,.5]
+minimize(f,x_init,constraints=cons)
+```
+
+If you use sin, cos, exp or other functions, be sure to use the np. version.
