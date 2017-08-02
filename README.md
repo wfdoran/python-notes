@@ -124,3 +124,13 @@ plt.show()
 
 ## [scipy](scipy.md)
 
+## nltk
+
+Part of Speach 
+```python
+import nltk
+my_str = "The cow jumped over the moon."
+nltk.download()    # first time only
+text = nltk.word_tokenize(my_str)
+nltk.pos_tag(text)
+```
