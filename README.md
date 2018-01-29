@@ -124,6 +124,8 @@ plt.show()
 
 ## [scipy](scipy.md)
 
+## [parallel](parallel.md)
+
 ## nltk
 
 Part of Speach 
