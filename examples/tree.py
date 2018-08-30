@@ -45,31 +45,106 @@ class Node:
                 self.gap_start = self.right.gap_start
                 
     def balance(node):
+        if node == None:
+            return None
         h_left = 0 if node.left == None else node.left.height
         h_right = 0 if node.right == None else node.right.height
         
         if h_left >= h_right + 2:
-            #              A                   B
-            #             / \                 / \
-            #            B                       A
-            #           / \                     /
-            #              C                   C
+            #              A                 
+            #             / \                
+            #            B                  
+            #           / \                    
+            #          D   C                 
             A = node
-            B = node.left
-            C = node.left.right
-            A.left = C
-            A.update()
-            B.right = A
-            return B
+            B = A.left
+            C = B.right
+            D = B.left
+            
+            h_d = 0 if D == None else D.height
+            h_c = 0 if C == None else C.height
+            
+            if h_c > h_d:
+                #              A                     C
+                #             /                   /     \
+                #            B                   B       A
+                #           / \                 / \     /
+                #          D   C               D   E   F
+                #             / \
+                #            E   F                
+            
+                E = C.left
+                F = C.right
+                
+                B.right = E
+                B.update()
+                
+                A.left = F
+                A.update()
+                
+                C.left = B
+                C.right = A
+                return C
+                
+            else:
+                #                                   B
+                #                                  / \
+                #                                 D   A
+                #                                    /
+                #                                   C
+                A.left = C
+                A.update()
+                
+                B.right = A
+                return B
             
         if h_right >= h_left + 2:
+            #                      A
+            #                       \
+            #                        B
+            #                       / \
+            #                      C   D
             A = node
-            B = node.right
-            C = node.right.left
-            A.right = C
-            A.update()
-            B.left = A
-            return B
+            B = A.right
+            C = B.left
+            D = B.right
+            
+            h_c = 0 if C == None else C.height
+            h_d = 0 if D == None else D.height
+            
+            if h_c > h_d:
+                #              A                      C
+                #               \                  /     \
+                #                B                A       B
+                #               / \                \     / \
+                #              C   D                F   E   D
+                #             / \
+                #            F   E                
+                
+                E = C.right
+                F = C.left
+                
+                B.left = E
+                B.update()
+                
+                A.right = F
+                A.update()
+                
+                C.left = A
+                C.right = B
+                return C
+                
+            else:
+                #                  B
+                #                 / \
+                #                A   D
+                #                 \
+                #                  C
+                A.right = C
+                A.update()
+                
+                B.left = A
+                return B
         return node
             
     def insert(node, val):
@@ -107,7 +182,8 @@ class Node:
                 node = Node.delete(B, val)
             
         node = Node.balance(node)
-        node.update()
+        if node != None:
+            node.update()
         return node
             
         
@@ -133,6 +209,12 @@ class BinaryTree:
     def delete(self,val):
         self.root = Node.delete(self.root, val)
         
+    def height(self):
+        if self.root == None:
+            return 0
+        else:
+            return self.root.height
+        
     def print(self):
         if self.root != None:
             self.root.print()
@@ -143,24 +225,16 @@ class BinaryTree:
             b = self.root.gap_start
             print(a, b, a+b)
         
-T = BinaryTree()
-T.insert(5)
-T.insert(1)
-T.insert(10)
-T.insert(7)
-T.print()
-T.max_gap()
-print()
-T.delete(5)
-T.print()
-T.max_gap()
-print()
+import random
         
-for i in range(11,20):
-    T.insert(i)
-T.print()
-print()
-
-for i in range(10,20,2):
-    T.delete(i)
-T.print()
+T = BinaryTree()
+X = []
+for i in range(1000):
+    val = random.randint(1,1000000000)
+    T.insert(val)
+    if random.randint(1,2) == 1:
+        X.append(val)
+for val in X:
+    T.delete(val)
+    
+print(T.height())
